@@ -13,4 +13,9 @@ cask "jira-quick-access" do
     "~/.jira-quick-access.json",
     "~/Library/Preferences/com.avono.jira-quick-access.plist",
   ]
+
+  caveats <<~EOS
+    If macOS blocks the app on first launch (unidentified developer), run:
+      xattr -dr com.apple.quarantine "/Applications/Jira Quick Access.app"
+  EOS
 end
