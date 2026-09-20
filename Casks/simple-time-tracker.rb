@@ -1,6 +1,6 @@
 cask "simple-time-tracker" do
-  version "1.0.4"
-  sha256 "e323b2f6e12ef7a4440679a51cd78fbd2aec2b6b9b1de868cd1dca6734f8ffd6"
+  version "1.0.5"
+  sha256 "118eb4058514c5740e6f681ec803ebb8b5262ad498b49fdf0614d8f5ed8bd8b8"
 
   url "https://github.com/diver80/simple-time-tracker/releases/download/v#{version}/Simple.Time.Tracker-v#{version}-macOS-Universal.dmg"
   name "Simple Time Tracker"
