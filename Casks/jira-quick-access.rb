@@ -1,6 +1,6 @@
 cask "jira-quick-access" do
-  version "1.1.0"
-  sha256 "f9e793b55805cefd19b6e8ccb6a9fc313d2cf8dba855c5bbd6dbc5f05ade20a5"
+  version "1.2.0"
+  sha256 "8273004cf6b55c394dce6895ed90d34a0609090ef6e15b13d5a90a5b251060ea"
 
   url "https://github.com/diver80/jira-quick-access/releases/download/v#{version}/Jira.Quick.Access-v#{version}-macOS-Universal.dmg"
   name "Jira Quick Access"
