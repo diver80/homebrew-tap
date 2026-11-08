@@ -1,6 +1,6 @@
 cask "omamac" do
-  version "1.2.0"
-  sha256 "04dc69ce70c72aed89c2e5b132c2453e1f08cb4995695449b417922e624649ab"
+  version "1.2.1"
+  sha256 "4aa6e155ac34861df48279d3b7998ad20a25d2e148f551251e18046c6b3eb8a0"
 
   url "https://github.com/diver80/omamac/releases/download/v#{version}/omamac-#{version}.dmg"
   name "OmaMac"
@@ -15,7 +15,7 @@ cask "omamac" do
 
   zap trash: [
     "~/.config/omamac",
-    "~/Library/Preferences/com.avono.omamac.plist",
+    "~/Library/Preferences/de.diver80.omamac.plist",
   ]
 
   caveats <<~EOS
