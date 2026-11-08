@@ -9,7 +9,7 @@ cask "omamac" do
 
   # OmaMac updates itself from GitHub releases (signed mygo updates)
   auto_updates true
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "OmaMac.app"
 
@@ -18,9 +18,16 @@ cask "omamac" do
     "~/Library/Preferences/de.diver80.omamac.plist",
   ]
 
+  # OmaMac is ad-hoc signed, not notarized: drop the download quarantine so
+  # Gatekeeper lets it start (Homebrew 7 removed --no-quarantine).
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/OmaMac.app"],
+                   must_succeed: false
+  end
+
   caveats <<~EOS
-    OmaMac is not notarized. If macOS blocks the first launch, run:
+    OmaMac is not notarized. If macOS still blocks the first launch, run:
       xattr -dr com.apple.quarantine /Applications/OmaMac.app
-    or install with: brew install --cask --no-quarantine diver80/tap/omamac
   EOS
 end
