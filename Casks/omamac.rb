@@ -20,10 +20,12 @@ cask "omamac" do
 
   # OmaMac is ad-hoc signed, not notarized: drop the download quarantine so
   # Gatekeeper lets it start (Homebrew 7 removed --no-quarantine).
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/OmaMac.app"],
-                   must_succeed: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/OmaMac.app"],
+        writable_paths: ["OmaMac.app"],
+        writable_base:  :appdir,
+        must_succeed:   false
   end
 
   caveats <<~EOS
