@@ -23,3 +23,11 @@ To uninstall:
 ```bash
 brew uninstall --cask jira-quick-access
 ```
+
+To install **OmaMac** (menu bar status panels, Jira Quick-Access & Atlassian status):
+
+```bash
+brew install --cask --no-quarantine diver80/tap/omamac
+```
+
+OmaMac updates itself; `brew upgrade --cask omamac` works as well.
