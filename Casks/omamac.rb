@@ -1,6 +1,6 @@
 cask "omamac" do
-  version "1.4.2"
-  sha256 "bf689ddc6cbb7cfea75436aacc58e6f351510352a4b10faf4a1f71419ba2a87d"
+  version "1.5.0"
+  sha256 "6725ca7e5e5ef5a169a4aacd8ac342ce13e5ffdea3b860e346df52e6735f7b32"
 
   url "https://github.com/diver80/omamac/releases/download/v#{version}/omamac-#{version}.dmg"
   name "OmaMac"
