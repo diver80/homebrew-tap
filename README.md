@@ -30,3 +30,13 @@ brew install --cask diver80/tap/omamac
 ```
 
 OmaMac updates itself; `brew upgrade --cask omamac` works as well.
+
+To install **OmaThunder** (Omarchy themes, AI writing assistant and mail triage for Thunderbird):
+
+```bash
+brew install diver80/tap/omathunder
+omathunder setup
+```
+
+Then install the add-on in Thunderbird from `$(brew --prefix)/opt/omathunder/share/omathunder/omathunder-extension.xpi`
+(Add-ons and Themes → gear icon → Install Add-on From File). Details: https://github.com/diver80/omathunder
