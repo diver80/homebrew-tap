@@ -1,8 +1,8 @@
 class Omathunder < Formula
   desc "Omarchy themes, AI writing assistant and mail triage for Thunderbird"
   homepage "https://github.com/diver80/omathunder"
-  url "https://github.com/diver80/omathunder/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "642b96ebfb84b7f4c6ded09a054b5936e52d2410982e2255010bee24911a4739"
+  url "https://github.com/diver80/omathunder/archive/refs/tags/v0.2.7.tar.gz"
+  sha256 "87d19d652025fd48ad737089259373f5649ed381307fb7ac87ef1c82f57a700a"
   license "MIT"
   head "https://github.com/diver80/omathunder.git", branch: "main"
 
