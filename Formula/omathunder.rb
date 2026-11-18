@@ -1,8 +1,8 @@
 class Omathunder < Formula
   desc "Mail app with AI copilot on top of Thunderbird, plus Omarchy themes"
   homepage "https://github.com/diver80/omathunder"
-  url "https://github.com/diver80/omathunder/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "3b50642d05b05303e52660688fcf3414215b0cf1d0cebf5974003d3a952ebd9c"
+  url "https://github.com/diver80/omathunder/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "e876fbd38e1ef12c3788fb480457f379d12b89aa65f48b0f9d6133621bdb2bce"
   license "MIT"
   head "https://github.com/diver80/omathunder.git", branch: "main"
 
