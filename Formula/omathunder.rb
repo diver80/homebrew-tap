@@ -1,8 +1,8 @@
 class Omathunder < Formula
-  desc "Omarchy themes, AI writing assistant and mail triage for Thunderbird"
+  desc "Mail app with AI copilot on top of Thunderbird, plus Omarchy themes"
   homepage "https://github.com/diver80/omathunder"
-  url "https://github.com/diver80/omathunder/archive/refs/tags/v0.2.9.tar.gz"
-  sha256 "0e08ac93e0a652c2c9d70aab2f882cab7292a5663f13e989328315d2ce734551"
+  url "https://github.com/diver80/omathunder/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "3b50642d05b05303e52660688fcf3414215b0cf1d0cebf5974003d3a952ebd9c"
   license "MIT"
   head "https://github.com/diver80/omathunder.git", branch: "main"
 
@@ -10,7 +10,21 @@ class Omathunder < Formula
   uses_from_macos "zip" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/omathunder"
+    ENV["CGO_ENABLED"] = "0"
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/omathunder"
+
+    if OS.mac?
+      # The app as a real bundle (Dock icon, notifications); `omathunder ui` finds it next to bin/.
+      arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+      ENV["MYGO_LDFLAGS"] = "-X main.version=#{version}"
+      system "go", "run", "github.com/egoist/mygo/cmd/mygo@v0.7.4", "build",
+             "-platform", "darwin/#{arch}", "-skip-dmg", "-o", buildpath/"appdist"
+      prefix.install buildpath/"appdist/darwin-#{arch}/OmaThunder.app"
+    else
+      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"omathunder-ui"), "./cmd/omathunder-ui"
+    end
+
     cd "extension" do
       system "zip", "-q", "-r", buildpath/"omathunder-extension.xpi", ".", "-x", "*.DS_Store"
     end
@@ -18,18 +32,32 @@ class Omathunder < Formula
   end
 
   def caveats
-    <<~EOS
+    s = <<~EOS
       Register OmaThunder with Thunderbird (once):
         omathunder setup
 
-      Then install the add-on in Thunderbird
+      Install the add-on in Thunderbird
       (Add-ons and Themes > gear icon > Install Add-on From File):
         #{opt_pkgshare}/omathunder-extension.xpi
+      Then open its settings (toolbar button "OmaThunder"), switch on the
+      local bridge and enable the accounts OmaThunder may change.
+
+      Start the app:
+        omathunder ui
+    EOS
+    if OS.mac?
+      s += <<~EOS
+
+        To find the app in Launchpad and Spotlight:
+          ln -sf #{opt_prefix}/OmaThunder.app ~/Applications/
+      EOS
+    end
+    s + <<~EOS
 
       After `brew upgrade omathunder`, install the .xpi again so add-on and
-      host versions match.
+      helper versions match.
 
-      Remove everything (also deletes OmaThunder's rules and settings):
+      Remove everything (also deletes OmaThunder's settings and state):
         omathunder uninstall && brew uninstall omathunder
     EOS
   end
@@ -37,5 +65,10 @@ class Omathunder < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/omathunder version")
     assert_path_exists pkgshare/"omathunder-extension.xpi"
+    if OS.mac?
+      assert_path_exists prefix/"OmaThunder.app/Contents/MacOS/OmaThunder"
+    else
+      assert_path_exists bin/"omathunder-ui"
+    end
   end
 end
