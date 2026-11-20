@@ -7,15 +7,17 @@ cask "maildiver" do
   desc "Native Email, Calendar & Contacts suite with flexible local & cloud AI"
   homepage "https://diver80.github.io/maildiver/"
 
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "MailDiver.app"
   binary "#{appdir}/MailDiver.app/Contents/MacOS/MailDiver", target: "maildiver"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args:         ["-dr", "com.apple.quarantine", "#{appdir}/MailDiver.app"],
-                   must_succeed: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/MailDiver.app"],
+        writable_paths: ["MailDiver.app"],
+        writable_base:  :appdir,
+        must_succeed:   false
   end
 
   zap trash: [
