@@ -4,26 +4,31 @@ Official Homebrew tap for applications and utilities by diver80.
 
 ## Installation
 
-To install **Jira Quick Access**:
+### MailDiver (Native Email, Calendar & Contacts Suite with Flexible Local & Cloud AI)
+
+**macOS (Universal `MailDiver.app` + `maildiver` CLI):**
 
 ```bash
-brew install --cask diver80/tap/jira-quick-access
+brew install --cask diver80/tap/maildiver
 ```
-
 
 To upgrade:
 
 ```bash
-brew upgrade --cask jira-quick-access
+brew upgrade --cask maildiver
 ```
 
-To uninstall:
+**Linux / CLI binary:**
 
 ```bash
-brew uninstall --cask jira-quick-access
+brew install diver80/tap/maildiver
 ```
 
-To install **OmaMac** (menu bar status panels, Jira Quick-Access & Atlassian status):
+Details & documentation: https://diver80.github.io/maildiver/ · https://github.com/diver80/maildiver
+
+---
+
+### OmaMac (Menu bar status panels, Jira Quick-Access & Atlassian status)
 
 ```bash
 brew install --cask diver80/tap/omamac
@@ -31,12 +36,17 @@ brew install --cask diver80/tap/omamac
 
 OmaMac updates itself; `brew upgrade --cask omamac` works as well.
 
-To install **OmaThunder** (Omarchy themes, AI writing assistant and mail triage for Thunderbird):
+---
+
+### Jira Quick Access
 
 ```bash
-brew install diver80/tap/omathunder
-omathunder setup
+brew install --cask diver80/tap/jira-quick-access
 ```
 
-Then install the add-on in Thunderbird from `$(brew --prefix)/opt/omathunder/share/omathunder/omathunder-extension.xpi`
-(Add-ons and Themes → gear icon → Install Add-on From File). Details: https://github.com/diver80/omathunder
+To upgrade / uninstall:
+
+```bash
+brew upgrade --cask jira-quick-access
+brew uninstall --cask jira-quick-access
+```
