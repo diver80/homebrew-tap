@@ -1,26 +1,26 @@
 class Maildiver < Formula
   desc "Native Email, Calendar & Contacts suite with flexible local & cloud AI"
   homepage "https://diver80.github.io/maildiver/"
-  version "0.7.25"
+  version "0.7.26"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/diver80/maildiver/releases/download/v#{version}/maildiver-darwin-arm64"
-      sha256 "f55552344f92d408f685ffe6f81c2933165be908606a9f054b184243c2444da4"
+      sha256 "7b61774307c18a3e6acf5841bf002df4bb74a2342acd1246ebb61d9563a7fe8b"
     else
       url "https://github.com/diver80/maildiver/releases/download/v#{version}/maildiver-darwin-amd64"
-      sha256 "ca7a4e349f19f8261eb8b0c9c20930a86453bec47269de98357edea887514bea"
+      sha256 "96387aa5df3f3bead4e613f583a639d707bfee0a19a18de59eb7117b4e0452a8"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/diver80/maildiver/releases/download/v#{version}/maildiver-linux-arm64"
-      sha256 "66b1c02bb222b0de1de6f8bfa67e11885d1473c26c13bddaa4121b152623ef77"
+      sha256 "d0687af5f2315908fa8f5ba7c256595db9a88ba43e004fb6642063966e996ca0"
     else
       url "https://github.com/diver80/maildiver/releases/download/v#{version}/maildiver-linux-amd64"
-      sha256 "5623449c606f7c3b47c00fade84782819ac798b7247603259504d135c3f2b732"
+      sha256 "87a752c2eb41d911c8f41cf6f1736e86610406adf5a761439cd41e03ae62250f"
     end
   end
 

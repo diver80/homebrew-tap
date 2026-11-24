@@ -1,6 +1,6 @@
 cask "maildiver" do
-  version "0.7.25"
-  sha256 "26f7b1fb0942c6a22baa2bb32aeabc0f23decbbf6a7df7c8dc3ca46aaf5255ce"
+  version "0.7.26"
+  sha256 "2058a2007f36957d0cf7c847f760f6fea82aec543c8d9d5b378fc614b57ad4be"
 
   url "https://github.com/diver80/maildiver/releases/download/v#{version}/maildiver-#{version}.dmg"
   name "MailDiver"
