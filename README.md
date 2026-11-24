@@ -4,27 +4,27 @@ Official Homebrew tap for applications and utilities by diver80.
 
 ## Installation
 
-### MailDiver (Native Email, Calendar & Contacts Suite with Flexible Local & Cloud AI)
+### PostDive (Native Email, Calendar & Contacts Suite with Flexible Local & Cloud AI)
 
-**macOS (Universal `MailDiver.app` + `maildiver` CLI):**
+**macOS (Universal `PostDive.app` + `postdive` CLI):**
 
 ```bash
-brew install --cask diver80/tap/maildiver
+brew install --cask diver80/tap/postdive
 ```
 
 To upgrade:
 
 ```bash
-brew upgrade --cask maildiver
+brew upgrade --cask postdive
 ```
 
 **Linux / CLI binary:**
 
 ```bash
-brew install diver80/tap/maildiver
+brew install diver80/tap/postdive
 ```
 
-Details & documentation: https://diver80.github.io/maildiver/ · https://github.com/diver80/maildiver
+Details & documentation: https://diver80.github.io/postdive/ · https://github.com/diver80/postdive
 
 ---
 
