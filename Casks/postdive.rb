@@ -1,6 +1,6 @@
 cask "postdive" do
-  version "0.7.44"
-  sha256 "3fc394b94a06d16b9e4cbd92180ccd0eb7412f83e77512fbe220e3cd10ee0b4c"
+  version "0.7.45"
+  sha256 "c50c6e34b8510a6455caae8244ed94aee9469ee36dbbd158ff5947d7d889ae6c"
 
   url "https://github.com/diver80/postdive/releases/download/v#{version}/postdive-#{version}.dmg"
   name "PostDive"
