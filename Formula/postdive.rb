@@ -1,26 +1,26 @@
 class Postdive < Formula
   desc "Native Email, Calendar & Contacts suite with flexible local & cloud AI"
   homepage "https://diver80.github.io/postdive/"
-  version "0.7.33"
+  version "0.7.34"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/diver80/postdive/releases/download/v#{version}/postdive-darwin-arm64"
-      sha256 "f1bd9f4a393671cac1495c0dd84e883c15fe81aefb04634038871b4be4209565"
+      sha256 "05958faefc2a5c894ba339d61759d3477e2c65aa73ff319863ffcee8dc69f8e6"
     else
       url "https://github.com/diver80/postdive/releases/download/v#{version}/postdive-darwin-amd64"
-      sha256 "70b76b795afaf48384e3be64861b76e49e6e9401b3537519b6776033054e6aca"
+      sha256 "b81b178175af0d92bc7b0a73683fe082dd3a110952f3f5417c43802c0edd8562"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/diver80/postdive/releases/download/v#{version}/postdive-linux-arm64"
-      sha256 "dff8a07f4845d016852909437a060b05fa0648b873c9399996e4452625663591"
+      sha256 "a58ae38af05da4a604654702ecea38240dae6ba1eb1a1c00a13e3142e7398325"
     else
       url "https://github.com/diver80/postdive/releases/download/v#{version}/postdive-linux-amd64"
-      sha256 "06b4b8f67526ceb9412a65ec2c7bca306bac6abf14bd785e9767d206b11178b6"
+      sha256 "5c9bcdcb9d4e794d8ef49f07d91ba5d4e149ecbe0d11f35ab6bc98d88901fd23"
     end
   end
 
